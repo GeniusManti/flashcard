@@ -1,4 +1,4 @@
-#Flashcard
+# Flashcard
 
-##Autor
+## Autor
 * **Kacper Kuźniarski** - [geniusmanti](https://github.com/GeniusManti)
