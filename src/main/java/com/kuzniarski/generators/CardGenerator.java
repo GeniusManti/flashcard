@@ -18,7 +18,7 @@ public class CardGenerator {
         return new FlashCard(tab[0], tab[1]);
     }
 
-    public static void isRegex(String flashCard, String regex) throws NoRegexException {
+    private static void isRegex(String flashCard, String regex) throws NoRegexException {
         int regexAmount = flashCard.length() - flashCard.replaceAll(regex, "").length();
         if (regexAmount != 0) {
             throw new NoRegexException();
