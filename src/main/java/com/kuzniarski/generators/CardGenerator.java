@@ -9,21 +9,16 @@ import com.kuzniarski.exceptions.NoRegexException;
 public class CardGenerator {
 
     public static FlashCard getFlashCard(String text, String regex) {
+        String[] tab = null;
         try {
-            CardGenerator.isRegex(text, regex);
+            NoRegexException.isRegex(text, regex);
+            tab = text.split(regex);
         } catch (NoRegexException e) {
             e.printStackTrace();
         }
-        String[] tab = text.split(regex);
-        return new FlashCard(tab[0], tab[1]);
+        return (tab != null) ? new FlashCard(tab[0], tab[1]) : null;
     }
 
-    private static void isRegex(String flashCard, String regex) throws NoRegexException {
-        int regexAmount = flashCard.length() - flashCard.replaceAll(regex, "").length();
-        if (regexAmount != 0) {
-            throw new NoRegexException();
-        }
-    }
 
 
 }

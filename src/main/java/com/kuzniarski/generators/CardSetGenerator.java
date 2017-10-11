@@ -1,19 +1,19 @@
 package com.kuzniarski.generators;
 
-import com.kuzniarski.domain.CardSet;
 import com.kuzniarski.domain.FlashCard;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by Kacper Kuźniarski on 08.10.2017.
  */
 public class CardSetGenerator {
 
-    public static CardSet getCardSet(List<String> textList) {
-        CardSet cardSet = new CardSet();
-        textList.forEach(s -> cardSet.addObject(CardGenerator.getFlashCard(s, ";")));
-        return cardSet;
+    public static List<FlashCard> getCardSet(List<String> textList) {
+        return textList.stream().
+                map(s -> CardGenerator.getFlashCard(s, ";"))
+                .collect(Collectors.toList());
     }
 
 }
