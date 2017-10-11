@@ -30,4 +30,12 @@ public class FlashCard {
     public String getTranslation() {
         return translation;
     }
+
+    @Override
+    public String toString() {
+        return "FlashCard{" +
+                "text='" + text + '\'' +
+                ", translation='" + translation + '\'' +
+                '}';
+    }
 }

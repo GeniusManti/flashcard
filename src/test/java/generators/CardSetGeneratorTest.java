@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
+import static com.kuzniarski.generators.CardGenerator.getFlashCard;
 import static org.junit.Assert.*;
 
 /**
@@ -40,9 +41,9 @@ public class CardSetGeneratorTest {
     @Test
     public void FlashCardGeneratorTest() {
 
-        FlashCard card = CardGenerator.getFlashCard(text, regex);
+        String[] strings = CardGenerator.getFlashCard(text, regex);
 
-        assertEquals(card.getText(), expected.getText());
-        assertEquals(card.getTranslation(), expected.getTranslation());
+        assertEquals(strings[0], expected.getText());
+        assertEquals(strings[1], expected.getTranslation());
     }
 }

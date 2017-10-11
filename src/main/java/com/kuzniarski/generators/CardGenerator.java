@@ -8,7 +8,7 @@ import com.kuzniarski.exceptions.NoRegexException;
  */
 public class CardGenerator {
 
-    public static FlashCard getFlashCard(String text, String regex) {
+    public static String[] getFlashCard(String text, String regex) {
         String[] tab = null;
         try {
             NoRegexException.isRegex(text, regex);
@@ -16,7 +16,7 @@ public class CardGenerator {
         } catch (NoRegexException e) {
             e.printStackTrace();
         }
-        return (tab != null) ? new FlashCard(tab[0], tab[1]) : null;
+        return (tab != null) ? new String[]{tab[0], tab[1]} : null;
     }
 
 
