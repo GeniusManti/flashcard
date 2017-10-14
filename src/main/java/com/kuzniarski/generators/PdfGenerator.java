@@ -79,7 +79,7 @@ public class PdfGenerator {
 
     public static void main(String[] args) throws IOException, DocumentException {
 
-        new PdfGenerator().generatePdf("D:\\shebang\\algebra.txt", "D:\\workspace\\flashcard\\pdf\\default.pdf");
+        new PdfGenerator().generatePdf("D:\\workspace\\flashcard\\source\\algebra.txt", "D:\\workspace\\flashcard\\pdf\\default.pdf");
 
     }
 
