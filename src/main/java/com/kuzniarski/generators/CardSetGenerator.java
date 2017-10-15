@@ -1,8 +1,8 @@
 package com.kuzniarski.generators;
 
 import com.kuzniarski.domain.FlashCard;
+import com.kuzniarski.exceptions.NoRegexException;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,9 +11,9 @@ import java.util.stream.Collectors;
  */
 public class CardSetGenerator {
 
-    public static List<String[]> getCardSet(List<String> textList) {
+    public List<FlashCard> generateFlashCard(List<String> textList, String regex) {
         return textList.stream().
-                map(s -> CardGenerator.getFlashCard(s, ";"))
+                map(s -> new CardGenerator().generateFlashCard(s, regex))
                 .collect(Collectors.toList());
     }
 
