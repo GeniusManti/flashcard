@@ -1,49 +1,55 @@
 package generators;
 
 import com.kuzniarski.domain.FlashCard;
+import com.kuzniarski.exceptions.NoRegexException;
 import com.kuzniarski.generators.CardGenerator;
+import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
+import org.junit.rules.ExpectedException;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
-import static com.kuzniarski.generators.CardGenerator.getFlashCard;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 /**
  * Created by Kacper Kuźniarski on 09.10.2017.
  */
-@RunWith(Parameterized.class)
 public class CardSetGeneratorTest {
 
-    private String text;
-    private String regex;
-    private FlashCard expected;
+    private static List<Object[]> validData;
+    private static List<Object[]> inValidData;
+    private static List<FlashCard> flashCards;
 
-    public CardSetGeneratorTest(String text, String regex, FlashCard expected) {
-        this.text = text;
-        this.regex = regex;
-        this.expected = expected;
-    }
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
 
-    @Parameterized.Parameters
-    public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][]{
-                {"amount;wielkość", ";", new FlashCard("amount", "wielkość")},
-                {"digit;cyfra", ";", new FlashCard("digit", "cyfra")},
-                {"dividend;dzielna", ";", new FlashCard("dividend", "dzielna")}
-        });
+    @BeforeClass
+    public static void beforeClass() {
+        validData = Arrays.asList(new Object[][]{
+                {"amount;wielkość", ";", "amount", "wielkość"},
+                {"digit;cyfra", ";", "digit", "cyfra"},
+                {"dividend;dzielna", ";", "dividend", "dzielna"}});
+
+        inValidData = Arrays.asList(new Object[][]{
+                {"amount;wielkość", "/", null},
+                {"digitcyfra", ";", null},
+                {"", ";", null}});
+
+        flashCards = new ArrayList<>();
     }
 
     @Test
-    public void FlashCardGeneratorTest() {
+    public void validDataTest() {
+        validData.forEach(s -> flashCards.add(new CardGenerator().generateFlashCard(s[0].toString(), s[1].toString())));
 
-        String[] strings = CardGenerator.getFlashCard(text, regex);
-
-        assertEquals(strings[0], expected.getText());
-        assertEquals(strings[1], expected.getTranslation());
+        for (int i = 0; i < validData.size(); i++) {
+            assertEquals(validData.get(i)[2], flashCards.get(i).getText());
+            assertEquals(validData.get(i)[3], flashCards.get(i).getTranslation());
+        }
     }
+    
 }
