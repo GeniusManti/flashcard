@@ -1,15 +1,14 @@
-package com.kuzniarski.generators;
+package flashcard.application.generators;
 
-import com.kuzniarski.domain.FlashCard;
-import com.kuzniarski.input.FileReader;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.GrayColor;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
+import flashcard.application.domain.FlashCard;
+import flashcard.application.input.FileReader;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,34 +17,32 @@ import java.util.stream.Collectors;
  */
 public class PdfGenerator {
 
-    private List<FlashCard> cardSet ;
-    private String pathToSave;
+    private List<FlashCard> cardSet;
+    ;
 
-    public PdfGenerator(String fileName, String regex, String pathAndFileNameToSave) {
-
+    public PdfGenerator(String fileName, String regex) {
+        fileName = (fileName.isEmpty())? "D:\\workspace\\flashcard\\source\\algebra.txt": fileName;
         List<String> textList = FileReader.read(fileName);
 
         cardSet = new CardSetGenerator().generateFlashCard(textList, regex);
-        pathToSave = pathAndFileNameToSave;
     }
 
-    public void generatePdf() throws IOException, DocumentException {
-        createPdf(pathToSave);
-    }
-
-    private void createPdf(String filename)
+    public InputStream generatePdf()
             throws DocumentException, IOException {
-        Document document = new Document();
-        PdfWriter.getInstance(document, new FileOutputStream(filename));
+
+        Document document = new Document(PageSize.A4, 10, 10, 10, 10);
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+
+        PdfWriter.getInstance(document, out);
         document.open();
-
-
 
         document.add(createTable(getTextList(), false));
         document.newPage();
         document.add(createTable(getTranslationList(), true));
 
         document.close();
+
+        return new ByteArrayInputStream(out.toByteArray());
     }
 
     private List<String> getTextList() {
@@ -61,14 +58,14 @@ public class PdfGenerator {
         table.setWidthPercentage(100);
         Font font = new Font(Font.HELVETICA, 7, Font.NORMAL, GrayColor.black);
 
-        if(!isTranslation) {
+        if (!isTranslation) {
             list.forEach(f ->
                     table.addCell(createCell(font, f)
                     ));
         } else {
-            for (int i = 1; i <= list.size()/5+1 ; i++) {
-                for (int j = (i*5)-1; j >= (i-1)*5; j--) {
-                    if(list.size() > j)
+            for (int i = 1; i <= list.size() / 5 + 1; i++) {
+                for (int j = (i * 5) - 1; j >= (i - 1) * 5; j--) {
+                    if (list.size() > j)
                         table.addCell(createCell(font, list.get(j)));
                 }
             }

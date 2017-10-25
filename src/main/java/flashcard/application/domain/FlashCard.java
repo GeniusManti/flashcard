@@ -1,6 +1,4 @@
-package com.kuzniarski.domain;
-
-import com.kuzniarski.exceptions.NoRegexException;
+package flashcard.application.domain;
 
 /**
  * Created by Kacper Kuźniarski on 23.06.2017.

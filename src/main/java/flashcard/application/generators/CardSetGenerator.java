@@ -1,7 +1,6 @@
-package com.kuzniarski.generators;
+package flashcard.application.generators;
 
-import com.kuzniarski.domain.FlashCard;
-import com.kuzniarski.exceptions.NoRegexException;
+import flashcard.application.domain.FlashCard;
 
 import java.util.List;
 import java.util.stream.Collectors;

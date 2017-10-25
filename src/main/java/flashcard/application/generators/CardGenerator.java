@@ -1,7 +1,7 @@
-package com.kuzniarski.generators;
+package flashcard.application.generators;
 
-import com.kuzniarski.domain.FlashCard;
-import com.kuzniarski.exceptions.NoRegexException;
+import flashcard.application.domain.FlashCard;
+import flashcard.application.exceptions.NoRegexException;
 
 /**
  * Created by Kacper Kuźniarski on 08.10.2017.

@@ -1,6 +1,4 @@
-package com.kuzniarski.input;
-
-import com.kuzniarski.domain.FlashCard;
+package flashcard.application.input;
 
 import java.io.IOException;
 import java.nio.file.Files;

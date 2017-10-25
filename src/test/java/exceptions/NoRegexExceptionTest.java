@@ -1,6 +1,6 @@
 package exceptions;
 
-import com.kuzniarski.exceptions.NoRegexException;
+import flashcard.application.exceptions.NoRegexException;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;

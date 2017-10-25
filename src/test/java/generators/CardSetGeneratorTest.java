@@ -1,8 +1,7 @@
 package generators;
 
-import com.kuzniarski.domain.FlashCard;
-import com.kuzniarski.exceptions.NoRegexException;
-import com.kuzniarski.generators.CardGenerator;
+import flashcard.application.domain.FlashCard;
+import flashcard.application.generators.CardGenerator;
 import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;

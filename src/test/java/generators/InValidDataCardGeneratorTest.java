@@ -1,7 +1,7 @@
 package generators;
 
-import com.kuzniarski.domain.FlashCard;
-import com.kuzniarski.generators.CardGenerator;
+import flashcard.application.domain.FlashCard;
+import flashcard.application.generators.CardGenerator;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,7 +9,6 @@ import org.junit.runners.Parameterized;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;

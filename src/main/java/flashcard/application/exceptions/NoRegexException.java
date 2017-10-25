@@ -1,4 +1,4 @@
-package com.kuzniarski.exceptions;
+package flashcard.application.exceptions;
 
 /**
  * Created by Kacper Kuźniarski on 23.06.2017.
