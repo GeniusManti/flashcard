@@ -12,12 +12,11 @@ import java.util.Set;
 @Builder
 public class User {
 
+    private long id;
     private String nick;
     private String email;
     private String phoneNumber;
     private String password;
     private boolean banned;
     private Role role;
-
-
 }

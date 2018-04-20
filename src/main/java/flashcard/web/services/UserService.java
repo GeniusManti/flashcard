@@ -1,6 +1,6 @@
 package flashcard.web.services;
 
-import flashcard.web.DTO.UserResponseDTO;
+import flashcard.web.DTO.response.UserResponseDTO;
 import org.springframework.http.ResponseEntity;
 
 public interface UserService {

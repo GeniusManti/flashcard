@@ -1,6 +1,6 @@
 package flashcard.web.controllers;
 
-import flashcard.web.DTO.UserResponseDTO;
+import flashcard.web.DTO.response.UserResponseDTO;
 import flashcard.web.services.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
