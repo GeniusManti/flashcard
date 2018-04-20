@@ -18,6 +18,9 @@ dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.5.7.RELEASE'
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '1.5.8.RELEASE'
 
+    compileOnly 'org.projectlombok:lombok:1.16.20'
+    compile group: 'com.google.guava', name: 'guava', version: '24.0-jre'
+
     compile group: 'com.lowagie', name: 'itext', version: '2.1.7'
     compile group: 'commons-io', name: 'commons-io', version: '2.5'
 

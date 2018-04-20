@@ -1,8 +1,13 @@
 package flashcard.application.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * Created by Kacper Kuźniarski on 23.06.2017.
  */
+@Setter
+@Getter
 public class FlashCard {
 
     private String text;
@@ -11,22 +16,6 @@ public class FlashCard {
     public FlashCard(String text, String translation) {
         this.text = text;
         this.translation = translation;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public void setTranslation(String translation) {
-        this.translation = translation;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public String getTranslation() {
-        return translation;
     }
 
     public FlashCard getFlashCard() {

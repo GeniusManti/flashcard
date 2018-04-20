@@ -18,7 +18,6 @@ import java.util.stream.Collectors;
 public class PdfGenerator {
 
     private List<FlashCard> cardSet;
-    ;
 
     public PdfGenerator(String fileName, String regex) {
         fileName = (fileName.isEmpty())? "D:\\workspace\\flashcard\\source\\algebra.txt": fileName;
