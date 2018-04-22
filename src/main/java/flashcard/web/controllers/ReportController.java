@@ -16,7 +16,7 @@ public class ReportController {
     @GetMapping
     public void generateReport(HttpServletResponse response) throws Exception {
 
-        byte[] data = IOUtils.toByteArray(new PdfGenerator("D:\\workspace\\flashcard\\source\\algebra.txt", ";").generatePdf());
+        byte[] data = IOUtils.toByteArray(new PdfGenerator("/home/kuznia/workspace/flashcard/source/algebra.txt", ";").generatePdf());
 
         streamReport(response, data, "my_report.pdf");
     }

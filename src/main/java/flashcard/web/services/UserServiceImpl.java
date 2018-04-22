@@ -1,6 +1,6 @@
 package flashcard.web.services;
 
-import flashcard.web.DTO.UserResponseDTO;
+import flashcard.web.DTO.response.UserResponseDTO;
 import org.apache.catalina.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
