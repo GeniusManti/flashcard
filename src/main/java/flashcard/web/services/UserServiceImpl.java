@@ -9,6 +9,11 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
 
     @Override
+    public UserResponseDTO createUser(long id) {
+        return null;
+    }
+
+    @Override
     public UserResponseDTO readUser(long id) {
         return null;
     }

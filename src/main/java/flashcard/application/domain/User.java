@@ -9,14 +9,12 @@ import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "USERS")
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
 @Getter
 @Builder
-
-
 public class User {
 
     @Id
@@ -25,6 +23,7 @@ public class User {
     private long id;
 
     @Column(unique = true)
+    @NotBlank
     private String nick;
 
     @Column(unique = true)
@@ -33,8 +32,9 @@ public class User {
 
     private String phoneNumber;
 
-    @Size(min = 60, max = 60)
+    @Size(min = 6, max = 16)
     private String password;
+
     private boolean banned;
 
     @Enumerated(EnumType.STRING)
