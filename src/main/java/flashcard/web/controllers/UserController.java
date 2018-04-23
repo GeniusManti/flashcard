@@ -18,7 +18,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     public ResponseEntity<UserResponseDTO> readUserById(@PathVariable("id") long id) {
-        return new ResponseEntity<>(userService.readUser(id), HttpStatus.OK);
+        return new ResponseEntity<>(userService.readUserById(id), HttpStatus.OK);
     }
 
     @GetMapping("/{nick}")
@@ -27,7 +27,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<UserResponseDTO> deleteUser(@PathVariable("id") long id) {
-        return new ResponseEntity<>(userService.deleteUser(id), HttpStatus.OK);
+    public void deleteUser(@PathVariable long userId) {
+        userService.deleteUser(userId);
     }
 }
