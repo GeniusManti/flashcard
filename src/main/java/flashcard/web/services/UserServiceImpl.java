@@ -4,10 +4,14 @@ import flashcard.application.domain.User;
 import flashcard.application.exceptions.ObjectNotFoundException;
 import flashcard.web.DTO.request.CreateUserRequestDTO;
 import flashcard.web.DTO.response.UserResponseDTO;
+import flashcard.web.controllers.UserController;
 import flashcard.web.mappers.UserMapper;
 import flashcard.web.repositories.UserRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Service
 public class UserServiceImpl implements UserService {
