@@ -29,6 +29,7 @@ public class UserMapperImpl implements UserMapper {
                 .email(createdUser.getEmail())
                 .password(createdUser.getPassword())
                 .phoneNumber(createdUser.getPhoneNumber())
+                .role(createdUser.getRole().toString())
                 .build();
     }
 }
