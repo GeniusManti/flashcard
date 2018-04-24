@@ -1,4 +1,4 @@
-package exceptions;
+package unit.exceptions;
 
 import flashcard.application.exceptions.NoRegexException;
 import org.junit.Rule;

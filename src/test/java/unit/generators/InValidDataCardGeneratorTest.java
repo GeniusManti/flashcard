@@ -1,4 +1,4 @@
-package generators;
+package unit.generators;
 
 import flashcard.application.domain.FlashCard;
 import flashcard.application.generators.CardGenerator;
