@@ -2,7 +2,7 @@ package flashcard.web.mappers;
 
 import flashcard.application.domain.User;
 import flashcard.application.domain.enums.Role;
-import flashcard.web.DTO.request.CreateUserRequestDTO;
+import flashcard.web.DTO.request.UserRequestDTO;
 import flashcard.web.DTO.response.UserResponseDTO;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class UserMapperImpl implements UserMapper {
 
     @Override
-    public User mapFromRequestDTO(CreateUserRequestDTO userRequestDTO) {
+    public User mapFromRequestDTO(UserRequestDTO userRequestDTO) {
         return User.builder()
                 .nick(userRequestDTO.getNick())
                 .email(userRequestDTO.getEmail())

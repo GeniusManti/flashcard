@@ -2,16 +2,11 @@ package flashcard.web.services;
 
 import flashcard.application.domain.User;
 import flashcard.application.exceptions.ObjectNotFoundException;
-import flashcard.web.DTO.request.CreateUserRequestDTO;
+import flashcard.web.DTO.request.UserRequestDTO;
 import flashcard.web.DTO.response.UserResponseDTO;
-import flashcard.web.controllers.UserController;
 import flashcard.web.mappers.UserMapper;
 import flashcard.web.repositories.UserRepository;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -25,7 +20,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserResponseDTO createUser(CreateUserRequestDTO userRequestDTO) {
+    public UserResponseDTO createUser(UserRequestDTO userRequestDTO) {
         User userToSave = userMapper.mapFromRequestDTO(userRequestDTO);
 
         User createdUser = userRepository.save(userToSave);

@@ -1,5 +1,6 @@
 package flashcard.web.DTO.request;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.NotBlank;
@@ -10,15 +11,11 @@ import javax.validation.constraints.Size;
 
 @Data
 @NoArgsConstructor
-public class CreateUserRequestDTO {
+public class UserRequestDTO {
 
     @NotBlank
     @Pattern(regexp = "^[A-ZĄĆĘŁŃÓŚŹŻa-zzżźćńółęąś0-9]{3,30}$", message = "validation.registration.nick.pattern")
     private String nick;
-
-    @NotBlank
-    @Pattern(regexp = "^[A-ZĄĆĘŁŃÓŚŹŻ][a-zzżźćńółęąś]{2,19}$", message = "validation.registration.surnamez`.pattern")
-    private String surname;
 
     @NotBlank
     @Pattern(regexp = "(^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.+[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@+(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$)",
@@ -32,4 +29,12 @@ public class CreateUserRequestDTO {
     @NotBlank
     @Size(min = 6, max = 16, message = "validation.registration.password.pattern")
     private String password;
+
+    @Builder
+    public UserRequestDTO(String nick, String email, String phoneNumber, String password) {
+        this.nick = nick;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.password = password;
+    }
 }
