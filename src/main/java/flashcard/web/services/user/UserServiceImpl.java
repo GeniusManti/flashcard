@@ -1,4 +1,4 @@
-package flashcard.web.services;
+package flashcard.web.services.user;
 
 import flashcard.application.domain.User;
 import flashcard.application.exceptions.ObjectNotFoundException;

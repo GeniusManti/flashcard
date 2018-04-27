@@ -2,7 +2,7 @@ package flashcard.web.controllers;
 
 import flashcard.web.DTO.request.UserRequestDTO;
 import flashcard.web.DTO.response.UserResponseDTO;
-import flashcard.web.services.UserService;
+import flashcard.web.services.user.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

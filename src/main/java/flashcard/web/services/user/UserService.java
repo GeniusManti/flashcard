@@ -1,4 +1,4 @@
-package flashcard.web.services;
+package flashcard.web.services.user;
 
 import flashcard.web.DTO.request.UserRequestDTO;
 import flashcard.web.DTO.response.UserResponseDTO;
