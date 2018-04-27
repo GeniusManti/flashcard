@@ -1,14 +1,13 @@
 package flashcard.web.controllers;
 
+import flashcard.web.DTO.request.UserRequestDTO;
 import flashcard.web.DTO.response.UserResponseDTO;
 import flashcard.web.services.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("api/users")
@@ -18,6 +17,12 @@ public class UserController {
 
     public UserController(UserService userService) {
         this.userService = userService;
+    }
+
+
+    @PostMapping
+    public ResponseEntity<UserResponseDTO> createUser(@RequestBody @Valid UserRequestDTO userRequestDTO) {
+        return new ResponseEntity<>(userService.createUser(userRequestDTO), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
@@ -34,4 +39,11 @@ public class UserController {
     public void deleteUser(@PathVariable long userId) {
         userService.deleteUser(userId);
     }
+
+    @DeleteMapping
+    public void deleteAllUsers() {
+        userService.deleteAllUser();
+    }
+
+
 }
