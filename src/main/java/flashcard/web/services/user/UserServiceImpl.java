@@ -2,7 +2,6 @@ package flashcard.web.services.user;
 
 import flashcard.application.domain.User;
 import flashcard.application.exceptions.ObjectNotFoundException;
-import flashcard.web.DTO.request.UserRequestDTO;
 import flashcard.web.DTO.response.UserResponseDTO;
 import flashcard.web.mappers.UserMapper;
 import flashcard.web.repositories.UserRepository;
@@ -17,15 +16,6 @@ public class UserServiceImpl implements UserService {
     public UserServiceImpl(UserRepository userRepository, UserMapper userMapper) {
         this.userRepository = userRepository;
         this.userMapper = userMapper;
-    }
-
-    @Override
-    public UserResponseDTO createUser(UserRequestDTO userRequestDTO) {
-        User userToSave = userMapper.mapFromRequestDTO(userRequestDTO);
-
-        User createdUser = userRepository.save(userToSave);
-
-        return userMapper.mapToResponseDTO(createdUser);
     }
 
     @Override
