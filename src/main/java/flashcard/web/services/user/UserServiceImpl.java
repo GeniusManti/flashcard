@@ -12,6 +12,8 @@ import flashcard.web.component.email.builder.EmailBuilder;
 import flashcard.web.component.email.sender.EmailSender;
 import flashcard.web.mappers.UserMapper;
 import flashcard.web.repositories.UserRepository;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -82,5 +84,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteAllUser() {
         userRepository.deleteAll();
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return null;
     }
 }
