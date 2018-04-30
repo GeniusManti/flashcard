@@ -33,7 +33,7 @@ public class RegistrationController {
     @PostMapping
     public ResponseEntity registration(@RequestBody @Valid @NotNull UserRequestDTO registrationReqDTO) {
         registrationService.register(registrationReqDTO);
-        return ResponseEntity.ok("registration success");
+        return ResponseEntity.ok(messages.get("registration.success"));
     }
 
 }
