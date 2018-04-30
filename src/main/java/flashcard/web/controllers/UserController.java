@@ -33,9 +33,8 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity registerUser(@RequestBody @Valid @NotNull UserRequestDTO registrationReqDTO) {
-        userService.registerUser(registrationReqDTO);
-        return ResponseEntity.ok(messages.get("registration.success"));
+    public ResponseEntity<UserResponseDTO> registerUser(@RequestBody @Valid @NotNull UserRequestDTO registrationReqDTO) {
+        return new ResponseEntity<>(userService.registerUser(registrationReqDTO), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
