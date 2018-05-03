@@ -2,6 +2,7 @@ package flashcard.web.controllers;
 
 import flashcard.web.DTO.request.UserRequestDTO;
 import flashcard.web.DTO.response.UserResponseDTO;
+import flashcard.web.aspect.LogExecutionTime;
 import flashcard.web.component.message.Messages;
 import flashcard.web.component.validation.RegistrationRequestDTOValidator;
 import flashcard.web.services.user.UserService;
@@ -32,6 +33,7 @@ public class UserController {
         binder.addValidators(registrationRequestDTOValidator);
     }
 
+    @LogExecutionTime
     @PostMapping
     public ResponseEntity<UserResponseDTO> registerUser(@RequestBody @Valid @NotNull UserRequestDTO registrationReqDTO) {
         return new ResponseEntity<>(userService.registerUser(registrationReqDTO), HttpStatus.OK);
