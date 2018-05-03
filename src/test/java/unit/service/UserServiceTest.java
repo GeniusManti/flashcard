@@ -1,7 +1,6 @@
 package unit.service;
 
 import flashcard.application.domain.User;
-import flashcard.web.DTO.request.UserRequestDTO;
 import flashcard.web.mappers.UserMapper;
 import flashcard.web.repositories.UserRepository;
 import flashcard.web.services.user.UserService;
@@ -15,9 +14,9 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Optional;
 
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static testObjectFactories.TestUserFactory.createTestUser;
-import static testObjectFactories.TestUserFactory.createTestUserRequestDTO;
 
 @RunWith(MockitoJUnitRunner.class)
 public class UserServiceTest {
@@ -34,27 +33,27 @@ public class UserServiceTest {
         userService = new UserServiceImpl(userRepository, userMapper);
     }
     
-    @Test
-    public void whenICreatePerson_thenThisPersonIsSavedAndMapped() {
-        //given
-        UserRequestDTO userRequestDTO = createTestUserRequestDTO();
-        User testUser = createTestUser();
-
-        when(userMapper.mapFromRequestDTO(userRequestDTO)).thenReturn(testUser);
-
-        User savedUser = createTestUser();
-        savedUser.setId(1L);
-
-        when(userRepository.save(testUser)).thenReturn(savedUser);
-
-        //when
-        userService.createUser(userRequestDTO);
-
-        //then
-        verify(userMapper, times(1)).mapFromRequestDTO(userRequestDTO);
-        verify(userRepository, times(1)).save(testUser);
-        verify(userMapper, times(1)).mapToResponseDTO(savedUser);
-    }
+//    @Test
+//    public void whenICreatePerson_thenThisPersonIsSavedAndMapped() {
+//        //given
+//        UserRequestDTO userRequestDTO = createTestUserRequestDTO();
+//        User testUser = createTestUser();
+//
+//        when(userMapper.mapFromRequestDTO(userRequestDTO)).thenReturn(testUser);
+//
+//        User savedUser = createTestUser();
+//        savedUser.setId(1L);
+//
+//        when(userRepository.save(testUser)).thenReturn(savedUser);
+//
+//        //when
+//        userService.createUser(userRequestDTO);
+//
+//        //then
+//        verify(userMapper, times(1)).mapFromRequestDTO(userRequestDTO);
+//        verify(userRepository, times(1)).save(testUser);
+//        verify(userMapper, times(1)).mapToResponseDTO(savedUser);
+//    }
 
 
     @Test
