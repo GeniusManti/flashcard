@@ -1,6 +1,6 @@
 package unit.mappers;
 
-import flashcard.application.domain.User;
+import flashcard.web.domain.User;
 import flashcard.web.DTO.response.UserResponseDTO;
 import flashcard.web.mappers.UserMapperImpl;
 import org.junit.Assert;

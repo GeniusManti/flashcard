@@ -1,34 +1,29 @@
 package flashcard.web.controllers;
 
-import flashcard.application.generators.PdfGenerator;
-import org.apache.commons.io.IOUtils;
+import flashcard.web.services.report.ReportService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 @RestController
-@RequestMapping("/generateReport.do")
+@RequestMapping("/api/downloadPdf")
 public class ReportController {
 
+    private final ReportService reportService;
+
+    public ReportController(ReportService reportService) {
+        this.reportService = reportService;
+    }
+
     @GetMapping
-    public void generateReport(HttpServletResponse response) throws Exception {
-
-        byte[] data = IOUtils.toByteArray(new PdfGenerator("/home/kuznia/workspace/flashcard/source/algebra.txt", ";").generatePdf());
-
-        streamReport(response, data, "my_report.pdf");
+    public ResponseEntity generateReport(HttpServletResponse response) throws Exception {
+        reportService.sendReport(response);
+        return new ResponseEntity(HttpStatus.OK);
     }
 
-    protected void streamReport(HttpServletResponse response, byte[] data, String name)
-            throws IOException {
 
-        response.setContentType("application/pdf");
-        response.setHeader("Content-disposition", "attachment; filename=" + name);
-        response.setContentLength(data.length);
-
-        response.getOutputStream().write(data);
-        response.getOutputStream().flush();
-    }
 }

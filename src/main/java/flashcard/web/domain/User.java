@@ -1,6 +1,6 @@
-package flashcard.application.domain;
+package flashcard.web.domain;
 
-import flashcard.application.domain.enums.Role;
+import flashcard.web.domain.enums.Role;
 import lombok.*;
 import org.hibernate.validator.constraints.NotBlank;
 

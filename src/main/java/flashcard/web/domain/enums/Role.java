@@ -1,4 +1,4 @@
-package flashcard.application.domain.enums;
+package flashcard.web.domain.enums;
 
 import java.util.Arrays;
 import java.util.List;
