@@ -1,6 +1,6 @@
 package unit.service;
 
-import flashcard.application.domain.User;
+import flashcard.web.domain.User;
 import flashcard.web.mappers.UserMapper;
 import flashcard.web.repositories.UserRepository;
 import flashcard.web.services.user.UserService;

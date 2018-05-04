@@ -1,9 +1,9 @@
 package flashcard.web.services.user;
 
-import flashcard.application.domain.User;
-import flashcard.application.domain.enums.Role;
-import flashcard.application.exceptions.EmailSenderException.SendingGreetingEmailFailException;
-import flashcard.application.exceptions.ObjectNotFoundException;
+import flashcard.web.domain.User;
+import flashcard.web.domain.enums.Role;
+import flashcard.web.exceptions.EmailSenderException.SendingGreetingEmailFailException;
+import flashcard.web.exceptions.ObjectNotFoundException;
 import flashcard.web.DTO.request.UserRequestDTO;
 import flashcard.web.DTO.response.UserResponseDTO;
 import flashcard.web.component.email.Email;

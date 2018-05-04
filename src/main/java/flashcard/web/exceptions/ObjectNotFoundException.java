@@ -1,4 +1,4 @@
-package flashcard.application.exceptions;
+package flashcard.web.exceptions;
 
 public class ObjectNotFoundException extends RuntimeException{
 

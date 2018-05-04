@@ -1,9 +1,7 @@
 package flashcard.web.DTO.response;
 
-import flashcard.application.domain.enums.Role;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
 
 @Builder
 @Getter

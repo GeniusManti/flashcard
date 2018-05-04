@@ -15,7 +15,6 @@ import javax.annotation.PostConstruct;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Date;
 
 @Service
 public class FileHandlerServiceImpl implements FileHandlerService {
@@ -71,7 +70,7 @@ public class FileHandlerServiceImpl implements FileHandlerService {
     }
 
     private String generateFileName(MultipartFile multiPart) {
-        return new Date().getTime() + "-" + multiPart.getOriginalFilename().replace(" ", "_");
+        return /*new Date().getTime() + "-" + */multiPart.getOriginalFilename().replace(" ", "_");
     }
 
     private void uploadFileTos3bucket(String fileName, File file) {

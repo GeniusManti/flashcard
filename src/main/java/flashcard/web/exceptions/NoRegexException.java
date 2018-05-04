@@ -1,4 +1,4 @@
-package flashcard.application.exceptions;
+package flashcard.web.exceptions;
 
 /**
  * Created by Kacper Kuźniarski on 23.06.2017.

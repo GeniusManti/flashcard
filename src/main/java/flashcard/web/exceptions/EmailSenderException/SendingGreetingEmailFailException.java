@@ -1,4 +1,4 @@
-package flashcard.application.exceptions.EmailSenderException;
+package flashcard.web.exceptions.EmailSenderException;
 
 public class SendingGreetingEmailFailException extends SendingEmailException {
     public SendingGreetingEmailFailException() {

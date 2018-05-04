@@ -1,7 +1,7 @@
 package flashcard.web.mappers;
 
-import flashcard.application.domain.User;
-import flashcard.application.domain.enums.Role;
+import flashcard.web.domain.User;
+import flashcard.web.domain.enums.Role;
 import flashcard.web.DTO.request.UserRequestDTO;
 import flashcard.web.DTO.response.UserResponseDTO;
 import org.springframework.stereotype.Component;

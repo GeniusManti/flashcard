@@ -1,6 +1,6 @@
 package flashcard.web.security;
 
-import flashcard.application.domain.User;
+import flashcard.web.domain.User;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;

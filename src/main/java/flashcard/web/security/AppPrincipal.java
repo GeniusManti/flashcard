@@ -1,6 +1,6 @@
 package flashcard.web.security;
 
-import flashcard.application.domain.User;
+import flashcard.web.domain.User;
 import lombok.Builder;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

@@ -1,7 +1,7 @@
 package flashcard.web.security;
 
 
-import flashcard.application.domain.User;
+import flashcard.web.domain.User;
 
 public interface PrincipalProvider {
     AppPrincipal getPrincipal();

@@ -1,6 +1,6 @@
 package flashcard.web.mappers;
 
-import flashcard.application.domain.User;
+import flashcard.web.domain.User;
 import flashcard.web.DTO.request.UserRequestDTO;
 import flashcard.web.DTO.response.UserResponseDTO;
 

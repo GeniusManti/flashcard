@@ -1,7 +1,7 @@
 package unit.generators;
 
-import flashcard.application.domain.FlashCard;
-import flashcard.application.generators.CardGenerator;
+import flashcard.web.domain.FlashCard;
+import flashcard.web.services.report.generators.CardGenerator;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

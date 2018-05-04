@@ -1,14 +1,15 @@
-package flashcard.application.generators;
+package flashcard.web.services.report.generators;
 
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.GrayColor;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
-import flashcard.application.domain.FlashCard;
-import flashcard.application.input.FileReader;
+import flashcard.web.domain.FlashCard;
 
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,15 +20,12 @@ public class PdfGenerator {
 
     private List<FlashCard> cardSet;
 
-    public PdfGenerator(String fileName, String regex) {
-        fileName = (fileName.isEmpty())? "D:\\workspace\\flashcard\\source\\algebra.txt": fileName;
-        List<String> textList = FileReader.read(fileName);
-
-        cardSet = new CardSetGenerator().generateFlashCard(textList, regex);
+    public PdfGenerator(List<FlashCard> cardSet) {
+        this.cardSet = cardSet;
     }
 
     public InputStream generatePdf()
-            throws DocumentException, IOException {
+            throws DocumentException {
 
         Document document = new Document(PageSize.A4, 10, 10, 10, 10);
         ByteArrayOutputStream out = new ByteArrayOutputStream();

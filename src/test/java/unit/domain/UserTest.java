@@ -1,6 +1,6 @@
 package unit.domain;
 
-import flashcard.application.domain.User;
+import flashcard.web.domain.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
