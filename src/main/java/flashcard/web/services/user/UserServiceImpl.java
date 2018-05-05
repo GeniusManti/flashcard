@@ -1,17 +1,18 @@
 package flashcard.web.services.user;
 
-import flashcard.web.domain.User;
-import flashcard.web.domain.enums.Role;
-import flashcard.web.exceptions.EmailSenderException.SendingGreetingEmailFailException;
-import flashcard.web.exceptions.ObjectNotFoundException;
 import flashcard.web.DTO.request.UserRequestDTO;
 import flashcard.web.DTO.response.UserResponseDTO;
 import flashcard.web.component.email.Email;
 import flashcard.web.component.email.HtmlEmail;
 import flashcard.web.component.email.builder.EmailBuilder;
 import flashcard.web.component.email.sender.EmailSender;
+import flashcard.web.domain.User;
+import flashcard.web.domain.enums.Role;
+import flashcard.web.exceptions.EmailSenderException.SendingGreetingEmailFailException;
+import flashcard.web.exceptions.ObjectNotFoundException;
 import flashcard.web.mappers.UserMapper;
 import flashcard.web.repositories.UserRepository;
+import flashcard.web.security.AppPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -87,7 +88,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
+    public UserDetails loadUserByUsername(String nick) throws UsernameNotFoundException {
+        User user = userRepository.readByNick(nick)
+                .orElseThrow(() -> new ObjectNotFoundException(nick));
+
+        return AppPrincipal.builder()
+                .user(user)
+                .build();
     }
 }
