@@ -26,7 +26,7 @@ public class AppPrincipal implements UserDetails {
 
     @Override
     public String getUsername() {
-        return null;
+        return user.getNick();
     }
 
     @Override
@@ -36,7 +36,7 @@ public class AppPrincipal implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return !user.isBanned();
     }
 
     @Override
@@ -46,7 +46,7 @@ public class AppPrincipal implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 
     public User getUser() {
