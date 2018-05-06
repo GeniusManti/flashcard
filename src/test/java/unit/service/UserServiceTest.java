@@ -1,5 +1,7 @@
 package unit.service;
 
+import flashcard.web.component.email.builder.EmailBuilder;
+import flashcard.web.component.email.sender.EmailSender;
 import flashcard.web.domain.User;
 import flashcard.web.mappers.UserMapper;
 import flashcard.web.repositories.UserRepository;
@@ -25,12 +27,17 @@ public class UserServiceTest {
     private UserRepository userRepository;
     @Mock
     private UserMapper userMapper;
+    @Mock
+    private EmailBuilder emailBuilder;
+    @Mock
+    private EmailSender emailSender;
+
 
     private UserService userService;
 
     @Before
     public void setUp() {
-        userService = new UserServiceImpl(userRepository, userMapper);
+        userService = new UserServiceImpl(userRepository, userMapper, emailSender, emailBuilder);
     }
     
 //    @Test
