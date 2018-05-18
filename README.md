@@ -29,6 +29,8 @@ To execute the application go to the Application.class and run main method
 #### Feature
 * frontend in AngularJS and Bootstrap
 * integration tests
+* SonarQube 
+* continuous integration
 * release 1.0.0 :)
 
 #### License
