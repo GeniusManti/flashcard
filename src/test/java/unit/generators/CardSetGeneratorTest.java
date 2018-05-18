@@ -12,7 +12,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 
 /**
  * Created by Kacper Kuźniarski on 09.10.2017.
@@ -43,7 +42,7 @@ public class CardSetGeneratorTest {
 
     @Test
     public void validDataTest() {
-        validData.forEach(s -> flashCards.add(new CardGenerator().generateFlashCard(s[0].toString(), s[1].toString())));
+        validData.forEach(s -> flashCards.add(CardGenerator.generateFlashCard(s[0].toString(), s[1].toString())));
 
         for (int i = 0; i < validData.size(); i++) {
             assertEquals(validData.get(i)[2], flashCards.get(i).getText());

@@ -42,7 +42,7 @@ public class ValidDataCardGeneratorTest {
 
     @Before
     public void setUp() throws Exception {
-        flashCard = new CardGenerator().generateFlashCard(text, regex);
+        flashCard = CardGenerator.generateFlashCard(text, regex);
     }
 
     @Test
