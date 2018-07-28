@@ -20,6 +20,7 @@ public class CardGenerator {
     }
 
     public static FlashCard generateFlashCard(String text, String regex) {
+
         try {
             NoRegexException.isRegex(text, regex);
             tab = text.split(regex);
