@@ -19,7 +19,8 @@ public class CardGenerator {
                 .collect(Collectors.toList());
     }
 
-    private static FlashCard generateFlashCard(String text, String regex) {
+    public static FlashCard generateFlashCard(String text, String regex) {
+
         try {
             NoRegexException.isRegex(text, regex);
             tab = text.split(regex);
